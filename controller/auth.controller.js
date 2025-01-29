@@ -1,9 +1,9 @@
-const { compare } = require("bcrypt");
-const User = require("../models/User");
-const bcrypt = require("bcrypt")
-const {generateToken} = require("../config/jwt.token");
+import { compare } from "bcrypt";
+import User from "../models/User.js";
+import bcrypt from "bcrypt";
+import { generateToken } from "../config/jwt.token.js";
 
-exports.signupUser = async (req, res) =>{
+export const signupUser = async (req, res) =>{
     let existingUser = await User.findOne({ email: req.body.email });
     
     if(existingUser)
@@ -31,7 +31,7 @@ exports.signupUser = async (req, res) =>{
 };
 
 
-exports.loginUser = async (req, res) =>{
+export const loginUser = async (req, res) =>{
     let user = await User.findOne({ email: req.body.email });
     if(!user)
     {

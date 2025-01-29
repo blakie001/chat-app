@@ -1,8 +1,19 @@
-const express = require("express");
-const authController = require("../controller/auth.controller");
+import express from "express";
 const router = express.Router();
+import { loginUser, signupUser } from "../controller/auth.controller.js";
 
-router.post("/login", authController.loginUser);
-router.post("/signup", authController.signupUser);
+router.post("/login", loginUser);
+router.post("/signup", signupUser);
 
-exports.router = router;
+export default router;
+
+// import express from "express";
+// import { newVote , getLeaderboardData} from "../controllers/vote.controller.js";
+
+// const router = express.Router();
+
+// router.post("/polls/:id/vote", newVote);
+
+// router.get("/leaderboard", getLeaderboardData);
+
+// export default router;

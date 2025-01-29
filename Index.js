@@ -1,12 +1,8 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const { connectDb } = require("./config/dbConnection");
-const cors = require("cors");
-
-
-// Routes
-const authRoutes = require("./routes/auth.routes");
-
+import express from "express";
+import dotenv from "dotenv";
+import { connectDb } from "./config/dbConnection.js";
+import cors from "cors";
+import authRoutes from "./routes/auth.routes.js";
 
 
 const server = express();
@@ -14,11 +10,11 @@ server.use(express.json())
 server.use(cors());
 dotenv.config();
 
-// DB Connection :
+
 connectDb();
 
 
-server.use(authRoutes.router)
+server.use("/", authRoutes);
 
 
 server.listen(3000, () =>{

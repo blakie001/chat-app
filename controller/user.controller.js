@@ -1,4 +1,4 @@
-const User = require("../models/User");
+import User from "../models/User.js";
 
 exports.getUserProfile = async (req, res) =>{
     let userId = res.userId;
