@@ -1,5 +1,5 @@
 import { compare } from "bcrypt";
-import User from "../models/User.js";
+import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import { generateToken } from "../config/jwt.token.js";
 
